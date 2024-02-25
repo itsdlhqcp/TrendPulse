@@ -1,17 +1,56 @@
 import Footer from "../components/Footer"
 import Navbar from "../components/Navbar"
+import ProfilePosts from "./ProfilePosts"
 
 
 const Profile = () => {
   return (
     <div>
-        <Navbar/>
-        <Footer/>
-    </div>
+          <Navbar/>
+          <div className="min-h-[80vh] px-8 md:px-[200px] mt-8 flex md:flex-row flex-col-reverse md:items-start items-start">
+             <div className="flex flex-col md:w-[70%] w-full mt-8 md:mt-0">
+              <h1 className="mb-4 text-xl font-bold">Your posts:</h1>
+              <ProfilePosts/>
+            </div>
+            <div className="md:sticky md:top-12  flex justify-start md:justify-end items-start md:w-[30%] w-full md:items-end ">
+         <div className="flex flex-col items-start space-y-4 ">
+             <h1 className="mb-4 text-xl font-bold">Profile</h1>
+           <input className="px-4 py-2 text-gray-500 outline-none" placeholder="Your username" type="text"/>
+               <input  className="px-4 py-2 text-gray-500 outline-none" placeholder="Your email" type="email"/>
+              <div className="flex items-center mt-8 space-x-4">
+                <button  className="px-4 py-2 font-semibold text-white bg-black hover:text-black hover:bg-gray-400">Update</button>
+                <button  className="px-4 py-2 font-semibold text-white bg-black hover:text-black hover:bg-gray-400">Delete</button>
+           </div>
+              <h3 className="mt-4 text-sm text-center text-green-500">user updated successfully!</h3>
+             </div>
+              
+             </div>
+           </div>
+           <Footer/>
+         </div>
   )
 }
 
 export default Profile
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -143,7 +182,7 @@ export default Profile
 //           <input onChange={(e)=>setEmail(e.target.value)} value={email} className="px-4 py-2 text-gray-500 outline-none" placeholder="Your email" type="email"/>
 //           {/* <input onChange={(e)=>setPassword(e.target.value)} value={password} className="px-4 py-2 text-gray-500 outline-none" placeholder="Your password" type="password"/> */}
 //           <div className="flex items-center mt-8 space-x-4">
-//             <button onClick={handleUserUpdate} className="px-4 py-2 font-semibold text-white bg-black hover:text-black hover:bg-gray-400">Update</button>
+//             <button onClick={handleUserUpdate} className="">Update</button>
 //             <button onClick={handleUserDelete} className="px-4 py-2 font-semibold text-white bg-black hover:text-black hover:bg-gray-400">Delete</button>
 //           </div>
 //           {updated && <h3 className="mt-4 text-sm text-center text-green-500">user updated successfully!</h3>}
