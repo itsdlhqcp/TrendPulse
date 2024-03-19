@@ -1,13 +1,19 @@
 import Footer from "../components/Footer"
 import HomePost from "../components/HomePost"
 import Navbar from "../components/Navbar"
+// import TriNav from "../components/TriNav"
+
 
 
 const Home = () => {
   return (
     <>
     <Navbar/>
-     <div className="px-8 md:px-[200px]"> 
+    {/* <TriNav/> */}
+     <div className="px-2 md:px-[200px]"> 
+        <br/>
+        <br/>
+        <br/>
         <HomePost/>
         <HomePost/>
         <HomePost/>

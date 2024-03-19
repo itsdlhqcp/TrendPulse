@@ -2,15 +2,15 @@
 
 const HomePost = () => {
   return (
-    <div className="w-full flex mt-8 space-x-4">
+    <div className="flex w-full p-2 mt-8 space-x-3 bg-gray-200 rounded-lg">
        {/* left */}
-       <div className="w-[35%] h-[200px] flex justify-center items-center">
-       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwbnTZs4YLKIt3eAelwShiBMkZtyWELWz1Dg&usqp-CAU" alt="" className="h-full w-full object-cover"/>
+       <div className="w-[34%] h-[230px] flex justify-center items-center">
+       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwbnTZs4YLKIt3eAelwShiBMkZtyWELWz1Dg&usqp-CAU" alt="" className="object-cover w-full h-full"/>
        </div>
         {/* right */}
         <div className="flex flex-col w-[65%]">
-        <h1 className="text-xl font-bold md:mb-2 mb-1 md:text-2xl">Uses of AI IN THE WORLD</h1>
-        <div className="flex mb-2 text-sm font-semibold text-gray-500 items-center justify-between md:mb-4">
+        <h1 className="mb-1 text-xl font-bold md:mb-2 md:text-2xl">#L360 shoot starts next month..., Release plans for ONAM 2024...! 👏💥</h1>
+        <div className="flex items-center justify-between mb-2 text-sm font-semibold text-gray-500 md:mb-4">
             <p>@DLHQ.DEV</p>
             <div className="flex space-x-2">
                 <p>16/06/2023</p>
@@ -34,17 +34,17 @@ export default HomePost
 
 // const HomePosts = ({post}) => {
 //   return (
-//     <div className="w-full flex mt-8 space-x-4">
+//     <div className="flex w-full mt-8 space-x-4">
 //     {/* left */}
 //     <div className="w-[35%] h-[200px] flex justify-center items-center">
-//     <img src={IF+post.photo} alt="" className="h-full w-full object-cover"/>
+//     <img src={IF+post.photo} alt="" className="object-cover w-full h-full"/>
 //     </div>
 //     {/* right */}
 //     <div className="flex flex-col w-[65%]">
-//       <h1 className="text-xl font-bold md:mb-2 mb-1 md:text-2xl">
+//       <h1 className="mb-1 text-xl font-bold md:mb-2 md:text-2xl">
 //       {post.title}
 //       </h1>
-//       <div className="flex mb-2 text-sm font-semibold text-gray-500 items-center justify-between md:mb-4">
+//       <div className="flex items-center justify-between mb-2 text-sm font-semibold text-gray-500 md:mb-4">
 //        <p>@{post.username}</p>
 //        <div className="flex space-x-2 text-sm">
 //        <p>{new Date(post.updatedAt).toString().slice(0,15)}</p>
