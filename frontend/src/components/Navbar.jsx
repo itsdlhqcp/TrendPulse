@@ -56,22 +56,24 @@ const Navbar = () => {
         </div>
       </div>
       {/* 2nd nav sec */}
-      <div></div>
+      
       <div className="flex items-center justify-between px-14 md:px-[200px] py-1 bg-orange-200">
-        <h1 className="text-lg font-extrabold md:text-xl"><Link to="/">NEWS</Link></h1>
-        <h1 className="text-lg font-extrabold md:text-xl"><Link to="/">|</Link></h1>
-        <h1 className="text-lg font-extrabold md:text-xl"><Link to="/">OTT</Link></h1>
-        <h1 className="text-lg font-extrabold md:text-xl"><Link to="/">|</Link></h1>
-        <h1 className="text-lg font-extrabold md:text-xl"><Link to="/">THEATRE</Link></h1>
-        {/* <div className="items-center justify-center hidden space-x-2 md:flex md:space-x-4">
-          {user ? <h3><Link to="/write">Write</Link></h3> : <h3><Link to="/login">Login</Link></h3>}
-          {user ? <h3>Profiles</h3> : <h3><Link to="/register">Register</Link></h3>}
-        </div>
-        <div onClick={showMenu} className="text-lg md:hidden">
-             <p><FaBars /></p>
-             {menu && <Menu/>}
-        </div> */}
-      </div>
+      <h1 className="text-lg font-extrabold md:text-xl">
+        <Link to="/" className="hover:text-blue-600">NEWS</Link>
+      </h1>
+      <h1 className="text-lg font-extrabold md:text-xl">
+        <span className="hover:text-blue-600">|</span>
+      </h1>
+      <h1 className="text-lg font-extrabold md:text-xl">
+        <Link to="/" className="hover:text-blue-600">OTT</Link>
+      </h1>
+      <h1 className="text-lg font-extrabold md:text-xl">
+        <span className="hover:text-blue-600">|</span>
+      </h1>
+      <h1 className="text-lg font-extrabold md:text-xl">
+        <Link to="/" className="hover:text-blue-600">THEATRE</Link>
+      </h1>
+    </div>
     </div>
     
   );
