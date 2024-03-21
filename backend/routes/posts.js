@@ -4,11 +4,12 @@ const router = express.Router();
 const User=require('../models/User')
 const bcrypt=require('bcrypt')
 const Post=require('../models/Post')
-const Comment=require('../models/Comment')
+const Comment=require('../models/Comment');
+const verifyToken = require('../verifyToken');
 
 
 //CREATE
-router.post("/create",async(req,res)=>{
+router.post("/create",verifyToken,async(req,res)=>{
   try{
      const newPost=new Post(req.body)
      const savedPost=await newPost.save()
@@ -21,7 +22,7 @@ router.post("/create",async(req,res)=>{
 
 
 //UPDATE
-router.put("/:id",async (req,res)=>{
+router.put("/:id",verifyToken,async (req,res)=>{
     try{
        
         const updatedPost=await Post.findByIdAndUpdate(req.params.id,{$set:req.body},{new:true})
@@ -34,7 +35,7 @@ router.put("/:id",async (req,res)=>{
 })
 
 //DELETE
-router.delete("/:id",async (req,res)=>{
+router.delete("/:id",verifyToken,async (req,res)=>{
     try{
         await Post.findByIdAndDelete(req.params.id)
          res.status(200).json("Post has been deleted!")
@@ -47,7 +48,7 @@ router.delete("/:id",async (req,res)=>{
 
 
 //GET POST DETAILS
-router.get("/:id",async (req,res)=>{
+router.get("/:id",verifyToken,async (req,res)=>{
     try{
         const post=await Post.findById(req.params.id)
         res.status(200).json(post)
@@ -58,7 +59,7 @@ router.get("/:id",async (req,res)=>{
 })
 
 //GET POSTS
-router.get("/",async (req,res)=>{
+router.get("/",verifyToken,async (req,res)=>{
     const query=req.query
     try{
         const searchFilter={
@@ -74,7 +75,7 @@ router.get("/",async (req,res)=>{
 
 
 //GET USER POSTS
-router.get("/user/:userId",async (req,res)=>{
+router.get("/user/:userId",verifyToken,async (req,res)=>{
     try{
         const posts=await Post.find({userId:req.params.userId})
         res.status(200).json(posts)
