@@ -14,6 +14,7 @@ const Home = () => {
         <br/>
         <br/>
         <br/>
+        <br/>
         <HomePost/>
         <HomePost/>
         <HomePost/>

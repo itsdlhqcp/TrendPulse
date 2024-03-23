@@ -8,7 +8,7 @@ import PostDetails from "./pages/PostDetails"
 import CreatePost from "./pages/CreatePost"
 import EditPost from "./pages/EditPost"
 import Profile from "./pages/Profile"
-import './App.css';
+
 import Ott from "./pages/Ott"
 import Release from "./pages/Release"
 // import Page2 from "./pages/page2"

@@ -34,8 +34,10 @@ const Navbar = () => {
       setMenu(!menu)
     }
 
-  const user = false; // Assuming this is for demonstration purpose
+  const user = true; // Assuming this is for demonstration purpose
 
+  
+    
   return (
     <div className="fixed top-0 left-0 right-0 z-10 bg-gray-200">
       <div className="flex items-center justify-between px-6 md:px-[200px] py-4">
@@ -48,10 +50,11 @@ const Navbar = () => {
          </div>
         <div className="items-center justify-center hidden space-x-2 md:flex md:space-x-4">
           {user ? <h3><Link to="/write">Write</Link></h3> : <h3><Link to="/login">Login</Link></h3>}
-          {user ? <h3>Profiles</h3> : <h3><Link to="/register">Register</Link></h3>}
+          {user ?<div> <p className="cursor-pointer"><FaBars /></p>
+          {menu && <Menu/>}</div> : <h3><Link to="/register">Register</Link></h3>}
         </div>
         <div onClick={showMenu} className="text-lg md:hidden">
-             <p><FaBars /></p>
+             <p className="cursor-pointer"><FaBars /></p>
              {menu && <Menu/>}
         </div>
       </div>
@@ -84,6 +87,49 @@ export default Navbar;
 
 
 
+
+
+{/* <div className="flex items-center justify-between px-14 md:px-[200px] py-1 bg-orange-200">
+{isButtons ? (
+  <>
+    <Link to="/" className="text-lg font-extrabold md:text-xl hover:text-blue-600">
+      <button onClick={handleButtonClick}>X</button>
+    </Link>
+    <span className="text-lg font-extrabold md:text-xl hover:text-blue-600">|</span>
+    <Link to="/hello" className="text-lg font-extrabold md:text-xl hover:text-blue-600">
+      <button onClick={handleButtonClick}>Y</button>
+    </Link>
+    <span className="text-lg font-extrabold md:text-xl hover:text-blue-600">|</span>
+    <Link to="/release" className="text-lg font-extrabold md:text-xl hover:text-blue-600">
+      <button onClick={handleButtonClick}>Z</button>
+    </Link>
+  </>
+) : (
+  <>
+    <h1 className="text-lg font-extrabold md:text-xl">
+      <Link to="/" className="hover:text-blue-600">
+        <button onClick={handleButtonClick}>X</button>
+      </Link>
+    </h1>
+    <h1 className="text-lg font-extrabold md:text-xl">
+      <span className="hover:text-blue-600">|</span>
+    </h1>
+    <h1 className="text-lg font-extrabold md:text-xl">
+      <Link to="/hello" className="hover:text-blue-600">
+        <button onClick={handleButtonClick}>Y</button>
+      </Link>
+    </h1>
+    <h1 className="text-lg font-extrabold md:text-xl">
+      <span className="hover:text-blue-600">|</span>
+    </h1>
+    <h1 className="text-lg font-extrabold md:text-xl">
+      <Link to="/release" className="hover:text-blue-600">
+        <button onClick={handleButtonClick}>Z</button>
+      </Link>
+    </h1>
+  </>
+)}
+</div> */}
 
 
 // // import { Link, useLocation, useNavigate } from "react-router-dom"
