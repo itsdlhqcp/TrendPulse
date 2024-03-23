@@ -11,6 +11,8 @@ import Profile from "./pages/Profile"
 
 import Ott from "./pages/Ott"
 import Release from "./pages/Release"
+import { UserContextProvider } from "./context/UserContext"
+
 // import Page2 from "./pages/page2"
 // import Page3 from "./pages/page3"
 
@@ -18,10 +20,9 @@ import Release from "./pages/Release"
 
 const App = () => {
   return (
-    <div className="App">
-      {/* <Navbar/> */}
+   
 
-      
+      <UserContextProvider>
         <Routes>
         <Route exact path="/" element={<Home/>}/>
         <Route exact path="/hello" element={<Ott/>}/>
@@ -32,11 +33,11 @@ const App = () => {
         <Route exact path="/edit/:id" element={<EditPost/>}/>
         <Route exact path="/posts/post/:id" element={<PostDetails/>}/>
         <Route exact path="/profile/:id" element={<Profile/>}/> 
-      </Routes>
+        </Routes>
+      </UserContextProvider>
+
        
       
-      {/* <Footer/> */}
-    </div>
   )
 }
 
