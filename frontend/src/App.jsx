@@ -20,12 +20,12 @@ const App = () => {
   return (
     <div className="App">
       {/* <Navbar/> */}
-      <Routes>
+
+      
+        <Routes>
         <Route exact path="/" element={<Home/>}/>
         <Route exact path="/hello" element={<Ott/>}/>
         <Route exact path="/release" element={<Release/>}/>
-        {/* <Route exact path="/page2" element={<Page2/>} />
-        <Route exact path="/page3" element={<Page3/>} /> */}
         <Route exact path="/login" element={<Login/>}/>
         <Route exact path="/register" element={<Register/>}/>
         <Route exact path="/write" element={<CreatePost/>}/>
@@ -33,6 +33,8 @@ const App = () => {
         <Route exact path="/posts/post/:id" element={<PostDetails/>}/>
         <Route exact path="/profile/:id" element={<Profile/>}/> 
       </Routes>
+       
+      
       {/* <Footer/> */}
     </div>
   )
