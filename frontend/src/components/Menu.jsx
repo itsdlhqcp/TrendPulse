@@ -1,9 +1,9 @@
 
 
 const Menu = () => {
-    const user=true
+    const user=false
     return (
-        <div className="bg-black w-[150px] z-10 flex flex-col items-start absolute top-12 right-6 md:right-16 rounded-md p-4 space-y-3">
+        <div className="bg-black w-[150px] z-10 flex flex-col items-start absolute top-12 right-6 md:right-32 rounded-md p-4 space-y-3">
         {!user && <h3 className="text-sm text-white cursor-pointer hover:text-gray-500">Login</h3>}
         {!user &&<h3 className="text-sm text-white cursor-pointer hover:text-gray-500">Register</h3>}
         {user && <h3 className="text-sm text-white cursor-pointer hover:text-gray-500">Profile</h3>}

@@ -34,7 +34,7 @@ const Navbar = () => {
       setMenu(!menu)
     }
 
-  const user = true; // Assuming this is for demonstration purpose
+  const user = false; // Assuming this is for demonstration purpose
 
   
     
@@ -50,11 +50,11 @@ const Navbar = () => {
          </div>
         <div className="items-center justify-center hidden space-x-2 md:flex md:space-x-4">
           {user ? <h3><Link to="/write">Write</Link></h3> : <h3><Link to="/login">Login</Link></h3>}
-          {user ?<div> <p className="cursor-pointer"><FaBars /></p>
+          {user ?<div onClick={showMenu}> <p className="cursor-pointer relative"><FaBars /></p>
           {menu && <Menu/>}</div> : <h3><Link to="/register">Register</Link></h3>}
         </div>
         <div onClick={showMenu} className="text-lg md:hidden">
-             <p className="cursor-pointer"><FaBars /></p>
+             <p className="cursor-pointer relative"><FaBars /></p>
              {menu && <Menu/>}
         </div>
       </div>
