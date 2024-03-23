@@ -37,7 +37,7 @@ const Navbar = () => {
     }
 
   const {user}=useContext(UserContext) // Assuming this is for demonstration purpose
-  console.log(user)
+  
   
     
   return (

@@ -15,7 +15,7 @@ const Login = () => {
    const navigate=useNavigate()
    const handleLogin=async()=>{
      try{
-        const res=await axios.post(URL+"/api/auth/login",{email,password})
+        const res=await axios.post(URL+"/api/auth/login",{email,password},{withCredentials:true})
         setUser(res.data)
         console.log(res)
         console.log("login successfully!")

@@ -1,7 +1,22 @@
+import { useContext } from "react"
+import { UserContext } from "../context/UserContext"
+import axios from "axios"
+import { URL } from "../url"
 
 
 const Menu = () => {
-    const user=false
+    const {user}=useContext(UserContext)
+    const {setUser}=useContext(UserContext)
+
+    const handleLogout=async()=>{
+        try{
+           const res=await axios.get(URL+"/api/auth/logout",{withCredentials:true})
+           console.log(res)
+           setUser(null)
+        }catch(err){
+            console.log(err)
+        }
+    }
     return (
         <div className="bg-black w-[150px] z-10 flex flex-col items-start absolute top-12 right-6 md:right-32 rounded-md p-4 space-y-3">
         {!user && <h3 className="text-sm text-white cursor-pointer hover:text-gray-500">Login</h3>}
@@ -9,7 +24,7 @@ const Menu = () => {
         {user && <h3 className="text-sm text-white cursor-pointer hover:text-gray-500">Profile</h3>}
         {user &&<h3 className="text-sm text-white cursor-pointer hover:text-gray-500">Write</h3>}
         {user && <h3 className="text-sm text-white cursor-pointer hover:text-gray-500">My blogs</h3>}
-        {user &&<h3 className="text-sm text-white cursor-pointer hover:text-gray-500">Logout</h3>}
+        {user &&<h3 onClick={handleLogout} className="text-sm text-white cursor-pointer hover:text-gray-500">Logout</h3>}
         </div>
     )
 }
