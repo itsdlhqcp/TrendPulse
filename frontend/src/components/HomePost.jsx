@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 
 
+
 const HomePost = ({post}) => {
   return (
     <div className="flex w-full max-w-screen-xl mt-4 space-x-4 bg-gray-200 rounded-lg">

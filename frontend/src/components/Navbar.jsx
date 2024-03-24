@@ -21,7 +21,7 @@
 // export default Navbar
 
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BsSearch } from 'react-icons/bs';
 import { FaBars } from "react-icons/fa6";
 import { useContext, useState } from "react";
@@ -30,7 +30,10 @@ import { UserContext } from "../context/UserContext";
 
 
 const Navbar = () => {
+    const [prompt,setPrompt]=useState("")
     const [menu,setMenu]=useState(false)
+    const navigate=useNavigate()
+    console.log(prompt)
 
     const showMenu=()=>{
       setMenu(!menu)
@@ -46,17 +49,17 @@ const Navbar = () => {
         <h1 className="text-lg font-extrabold md:text-xl"><Link to="/">TrendPulse</Link></h1>
         <div className="flex items-center justify-center space-x-2">
       <div className="flex items-center">
-        <BsSearch className="mr-2 text-sm" />
-        <input className="px-2 py-1 text-sm outline-none" placeholder="Search a post" type="text" />
+       <p onClick={()=>navigate(prompt?"?search="+prompt:navigate("/"))} className="cursor-pointer"><BsSearch className="mr-2 text-sm" /></p> 
+        <input onChange={(e)=>setPrompt(e.target.value)} className="px-2 py-1 text-sm outline-none" placeholder="Search a post" type="text" />
       </div>
          </div>
         <div className="items-center justify-center hidden space-x-2 md:flex md:space-x-4">
           {user ? <h3><Link to="/write">Write</Link></h3> : <h3><Link to="/login">Login</Link></h3>}
-          {user ?<div onClick={showMenu}> <p className="cursor-pointer relative"><FaBars /></p>
+          {user ?<div onClick={showMenu}> <p className="relative cursor-pointer"><FaBars /></p>
           {menu && <Menu/>}</div> : <h3><Link to="/register">Register</Link></h3>}
         </div>
         <div onClick={showMenu} className="text-lg md:hidden">
-             <p className="cursor-pointer relative"><FaBars /></p>
+             <p className="relative cursor-pointer"><FaBars /></p>
              {menu && <Menu/>}
         </div>
       </div>
