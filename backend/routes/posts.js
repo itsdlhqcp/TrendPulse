@@ -48,7 +48,7 @@ router.delete("/:id",verifyToken,async (req,res)=>{
 
 
 //GET POST DETAILS
-router.get("/:id",verifyToken,async (req,res)=>{
+router.get("/:id",async (req,res)=>{
     try{
         const post=await Post.findById(req.params.id)
         res.status(200).json(post)
@@ -59,7 +59,7 @@ router.get("/:id",verifyToken,async (req,res)=>{
 })
 
 //GET POSTS
-router.get("/",verifyToken,async (req,res)=>{
+router.get("/",async (req,res)=>{
     const query=req.query
     try{
         const searchFilter={
@@ -75,7 +75,7 @@ router.get("/",verifyToken,async (req,res)=>{
 
 
 //GET USER POSTS
-router.get("/user/:userId",verifyToken,async (req,res)=>{
+router.get("/user/:userId",async (req,res)=>{
     try{
         const posts=await Post.find({userId:req.params.userId})
         res.status(200).json(posts)
