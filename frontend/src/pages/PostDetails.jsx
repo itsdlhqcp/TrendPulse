@@ -1,31 +1,56 @@
+import { useParams } from "react-router-dom"
 import Comment from "../components/Comment"
 import Footer from "../components/Footer"
 import Navbar from "../components/Navbar"
 import {BiEdit} from 'react-icons/bi'
 import {MdDelete} from 'react-icons/md'
+import axios from "axios"
+import { URL } from "../url"
+import { useEffect, useState } from "react"
 
 
 const PostDetails = () => {
+
+  const postId=useParams().id
+  const [post,setPost]=useState({})
+  console.log(postId)
+
+  const fetchPost=async()=>{
+    try{
+      const res= await axios.get(URL+"/api/posts/"+postId)
+      // console.log(res.data)
+      setPost(res.data)
+    }
+    catch(err){
+      console.log(err)
+    }
+  }
+
+  useEffect(()=>{
+    fetchPost()
+
+  },[postId])
+  
   return (
     <div>
         <Navbar/>
         <div className="px-8 md:px-[200px] mt-8">
             <div className="flex items-center justify-between">
-                <h1 className="text-2xl font-bold text-black md:text-3xl">10 uses of AI in daily in this days of human lives</h1>
+                <h1 className="text-2xl font-bold text-black md:text-3xl">{post.title}</h1>
                 <div className="flex items-center justify-center space-x-2">
                     <p><BiEdit/></p>
                     <p><MdDelete/></p>
                 </div>
             </div>
             <div className="flex items-center justify-between mt-2 md:mt-4">
-            <p>@DLHQ.DEV</p>
+            <p>@{post.username}</p>
             <div className="flex space-x-2">
                 <p>16/06/2023</p>
                 <p>16:45</p>
             </div>
             </div>
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwbnTZs4YLKIt3eAelwShiBMkZtyWELWz1Dg&usqp-CAU" className="w-full mx-auto mt-8" alt=""/>
-            <p className="mx-auto mt-8"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <p className="mx-auto mt-8">{post.desc}</p>
             <div className="flex items-center mt-8 space-x-4 font-semibold">
                 <p>Categories:</p>
                 <div className="flex items-center justify-center space-x-2">
@@ -38,7 +63,7 @@ const PostDetails = () => {
                     {/* comment */}
                           < Comment/>
                           < Comment/>
-                       </div>
+                 </div>
                        {/* write a comment */}
                        <div className="flex flex-col mt-4 md:flex-row">
                          <input type="text" placeholder="write a comment" className="md:w-[90%] outline-none px-4 mt-4 md:mt-0"/>

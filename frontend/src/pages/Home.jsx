@@ -3,9 +3,10 @@ import Footer from "../components/Footer"
 import HomePost from "../components/HomePost"
 import Navbar from "../components/Navbar"
 import { URL } from "../url"
-import { useEffect, useState } from "react"
-import { useLocation } from "react-router-dom"
+import { useContext, useEffect, useState } from "react"
+import { Link, useLocation } from "react-router-dom"
 import Loader from "../components/Loader"
+import { UserContext } from "../context/UserContext"
 // import TriNav from "../components/TriNav"
 
 
@@ -16,6 +17,7 @@ const Home = () => {
   const [posts,setPosts]=useState([])
   const [noResults,setNoResults]=useState(false)
   const [loader,setLoader]=useState(false)
+  const {user}=useContext(UserContext)
 
 
 // after all backend posts tests passed 
@@ -53,7 +55,15 @@ useEffect(()=>{
         <br/>
         <br/>
         {loader?<div className="h-[40vh] flex justify-center items-center"><Loader/></div>:!noResults?posts.map((post)=>(
+          <>
+          <Link to={user?`/posts/post/${post._id}`:"/login"}>
           <HomePost key={post._id} post={post}/>
+          </Link>
+          </>
+        
+           
+          
+         
         )):<h3 className="mt-32 font-bold text-center ">No posts available!</h3>}
         {/* <HomePost/>
         <HomePost/>

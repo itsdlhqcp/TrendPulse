@@ -11,7 +11,7 @@ const verifyToken=(req,res,next)=>{
             return res.status(403).json("Token is not valid!")
         }
         
-        req.userId=data.id
+        req.userId=data._id
        
        // console.log("passed")
         
