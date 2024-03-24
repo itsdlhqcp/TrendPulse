@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar"
 import { URL } from "../url"
 import { useEffect, useState } from "react"
 import { useLocation } from "react-router-dom"
+import Loader from "../components/Loader"
 // import TriNav from "../components/TriNav"
 
 
@@ -14,11 +15,13 @@ const Home = () => {
   const {search}=useLocation()
   const [posts,setPosts]=useState([])
   const [noResults,setNoResults]=useState(false)
+  const [loader,setLoader]=useState(false)
 
 
 // after all backend posts tests passed 
 // frontend connection fetching done here
 const fetchPosts=async()=>{
+  setLoader(true)
   try{
     const res=await axios.get(URL+"/api/posts/"+search)
     console.log(res.data)
@@ -29,8 +32,10 @@ const fetchPosts=async()=>{
     else{
       setNoResults(false)
     }
+    setLoader(false)
   }catch(err){
     console.log(err)
+    setLoader(true)
   }
 }
 
@@ -47,7 +52,7 @@ useEffect(()=>{
         <br/>
         <br/>
         <br/>
-        {!noResults?posts.map((post)=>(
+        {loader?<div className="h-[40vh] flex justify-center items-center"><Loader/></div>:!noResults?posts.map((post)=>(
           <HomePost key={post._id} post={post}/>
         )):<h3 className="mt-32 font-bold text-center ">No posts available!</h3>}
         {/* <HomePost/>
