@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar"
 import {BiEdit} from 'react-icons/bi'
 import {MdDelete} from 'react-icons/md'
 import axios from "axios"
-import { URL } from "../url"
+import { URL,IF } from "../url"
 import { useEffect, useState } from "react"
 
 
@@ -45,11 +45,11 @@ const PostDetails = () => {
             <div className="flex items-center justify-between mt-2 md:mt-4">
             <p>@{post.username}</p>
             <div className="flex space-x-2">
-                <p>16/06/2023</p>
-                <p>16:45</p>
+                <p>{new Date(post.updatedAt).toString().slice(0,10)}</p>
+                <p>{new Date(post.updatedAt).toString().slice(16,24)}</p>
             </div>
             </div>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwbnTZs4YLKIt3eAelwShiBMkZtyWELWz1Dg&usqp-CAU" className="w-full mx-auto mt-8" alt=""/>
+            <img src={IF+post.photo} className="w-full mx-auto mt-8" alt=""/>
             <p className="mx-auto mt-8">{post.desc}</p>
             <div className="flex items-center mt-8 space-x-4 font-semibold">
                 <p>Categories:</p>

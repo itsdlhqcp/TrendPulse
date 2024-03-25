@@ -5,6 +5,7 @@ import { useContext, useState } from 'react'
 import { UserContext } from '../context/UserContext'
 import { URL } from "../url"
 import axios from "axios"
+import { useNavigate } from "react-router-dom"
 
 
 const CreatePost = () => {
@@ -16,6 +17,7 @@ const CreatePost = () => {
     const {user} = useContext(UserContext);
     const [cat,setCat]=useState("")
     const [cats,setCats]=useState([])
+    const navigate=useNavigate()
 
      const deleteCategory=(i)=>{
         let updatedCats=[...cats]
@@ -62,7 +64,7 @@ const CreatePost = () => {
               console.log(post)
               try{
                 const res=await axios.post(URL+"/api/posts/create",post,{withCredentials:true})
-                // navigate("/posts/post/"+res.data._id)
+                navigate("/posts/post/"+res.data._id)
                 console.log(res.data)
       
               }
