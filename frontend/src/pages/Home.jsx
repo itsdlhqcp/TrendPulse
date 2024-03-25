@@ -60,11 +60,9 @@ useEffect(()=>{
           <HomePost key={post._id} post={post}/>
           </Link>
           </>
-        
-           
-          
          
         )):<h3 className="mt-32 font-bold text-center ">No posts available!</h3>}
+        <br/>
         {/* <HomePost/>
         <HomePost/>
         <HomePost/> */}

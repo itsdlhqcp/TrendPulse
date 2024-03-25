@@ -2,7 +2,8 @@ const express=require('express')
 const app=express()
 const mongoose=require('mongoose')
 const dotenv=require('dotenv')
-const cors = require('cors')
+const cors=require('cors')
+const path=require("path")
 const multer=require('multer')
 const cookieParser=require('cookie-parser')
 const authRoute=require('./routes/auth')
@@ -25,6 +26,7 @@ const connectDB=async()=>{
 //middlewares
 dotenv.config()
 app.use(express.json())
+app.use("/images",express.static(path.join(__dirname,"/images")))
 app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 app.use(cookieParser())
 app.use("/api/auth",authRoute)

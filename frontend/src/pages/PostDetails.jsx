@@ -34,6 +34,9 @@ const PostDetails = () => {
   return (
     <div>
         <Navbar/>
+        <br/>
+        <br/>
+        <br/>
         <div className="px-8 md:px-[200px] mt-8">
             <div className="flex items-center justify-between">
                 <h1 className="text-2xl font-bold text-black md:text-3xl">{post.title}</h1>
@@ -54,9 +57,14 @@ const PostDetails = () => {
             <div className="flex items-center mt-8 space-x-4 font-semibold">
                 <p>Categories:</p>
                 <div className="flex items-center justify-center space-x-2">
-                 <div className="px-3 py-1 bg-gray-300 rounded-lg">Tech</div>
-                 <div className="px-3 py-1 bg-gray-300 rounded-lg">AI</div>
-                 </div>
+                    {post.categories?.map((c,i)=>(
+                 <>
+                <div key={i} className="px-3 py-1 bg-gray-300 rounded-lg">{c}</div>
+                 </>
+            
+          ))}
+            
+          </div>
                  </div>
                  <div className="flex flex-col mt-4">
                     <h3 className="mt-6 mb-4 font-semibold">Comments:</h3>
