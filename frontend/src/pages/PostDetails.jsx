@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import Comment from "../components/Comment"
 import Footer from "../components/Footer"
 import Navbar from "../components/Navbar"
@@ -14,6 +14,7 @@ const PostDetails = () => {
   const postId=useParams().id
   const [post,setPost]=useState({})
   console.log(postId)
+  const navigate=useNavigate()
 
   const fetchPost=async()=>{
     try{
@@ -24,6 +25,26 @@ const PostDetails = () => {
     catch(err){
       console.log(err)
     }
+  }
+
+  useEffect(()=>{
+    fetchPost()
+
+  },[postId])
+
+  // handle delete post
+    const handleDeletePost=async ()=>{
+
+    try{
+      const res=await axios.delete(URL+"/api/posts/"+postId,{withCredentials:true})
+      console.log(res.data)
+      navigate("/")
+
+    }
+    catch(err){
+      console.log(err)
+    }
+
   }
 
   useEffect(()=>{
@@ -41,8 +62,8 @@ const PostDetails = () => {
             <div className="flex items-center justify-between">
                 <h1 className="text-2xl font-bold text-black md:text-3xl">{post.title}</h1>
                 <div className="flex items-center justify-center space-x-2">
-                    <p><BiEdit/></p>
-                    <p><MdDelete/></p>
+                    <p className="cursor-pointer" onClick={()=>navigate("/edit/"+postId)}><BiEdit/></p>
+                    <p className="cursor-pointer" onClick={handleDeletePost}><MdDelete/></p>
                 </div>
             </div>
             <div className="flex items-center justify-between mt-2 md:mt-4">
