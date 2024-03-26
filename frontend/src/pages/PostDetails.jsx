@@ -6,13 +6,18 @@ import {BiEdit} from 'react-icons/bi'
 import {MdDelete} from 'react-icons/md'
 import axios from "axios"
 import { URL,IF } from "../url"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import { UserContext } from "../context/UserContext"
 
 
 const PostDetails = () => {
 
   const postId=useParams().id
   const [post,setPost]=useState({})
+  const {user}=useContext(UserContext)
+  const [comments,setComments]=useState([])
+  const [comment,setComment]=useState("")
+  // const [loader,setLoader]=useState(false)
   console.log(postId)
   const navigate=useNavigate()
 
@@ -51,6 +56,43 @@ const PostDetails = () => {
     fetchPost()
 
   },[postId])
+
+  const fetchPostComments=async()=>{
+    // setLoader(true)
+    try{
+      const res=await axios.get(URL+"/api/comments/post/"+postId,{withCredentials:true})
+      setComments(res.data)
+      // setLoader(false)
+
+    }
+    catch(err){
+      // setLoader(true)
+      console.log(err)
+    }
+  }
+
+  useEffect(()=>{
+    fetchPostComments()
+
+  },[postId])
+
+  const postComment=async(e)=>{
+    e.preventDefault()
+    try{
+      const res=await axios.post(URL+"/api/comments/create",
+      {comment:comment,author:user.username,postId:postId,userId:user._id},
+      {withCredentials:true})
+      console.log(res.data)
+      fetchPostComments()
+       setComment("")
+       window.location.reload(true)
+
+    }
+    catch(err){
+         console.log(err)
+    }
+
+  }
   
   return (
     <div>
@@ -90,13 +132,14 @@ const PostDetails = () => {
                  <div className="flex flex-col mt-4">
                     <h3 className="mt-6 mb-4 font-semibold">Comments:</h3>
                     {/* comment */}
-                          < Comment/>
-                          < Comment/>
+                      {comments?.map((c)=>(
+                        <Comment key={c._id} c={c} post={post} />
+                    ))}
                  </div>
                        {/* write a comment */}
                        <div className="flex flex-col mt-4 md:flex-row">
-                         <input type="text" placeholder="write a comment" className="md:w-[90%] outline-none px-4 mt-4 md:mt-0"/>
-                         <button className="bg-black text-sm text-white px-2 py-2 md:w-[20%] mt-4 md:mt-0">Add Comment</button>
+                         <input onChange={(e)=>setComment(e.target.value)} type="text" placeholder="write a comment" className="md:w-[90%] outline-none px-4 mt-4 md:mt-0"/>
+                         <button onClick={postComment} className="bg-black text-sm text-white px-2 py-2 md:w-[20%] mt-4 md:mt-0">Add Comment</button>
                        </div>
             </div>
         <Footer/>

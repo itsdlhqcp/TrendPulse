@@ -99,6 +99,7 @@ const EditPost = () => {
         <h1 className='mt-8 text-xl font-bold md:text-2xl'>Update the post</h1>
             <form className="flex flex-col w-full mt-4 space-y-4 md:space-y-8">
                 <input onChange={(e)=>setTitle(e.target.value)} value={title} type="text" placeholder='Enter post title' className='px-4 py-2 outline-none'/>
+                <h4 className='mt-8 font-bold text-sl md:text-2xl'>Upload New Image</h4>
                 <input onChange={(e)=>setFile(e.target.files[0])} type="file"  className='px-4'/>
                 <div className="flex flex-col">
                 <div className="flex flex-col items-center space-x-4 md:space-x-8">
