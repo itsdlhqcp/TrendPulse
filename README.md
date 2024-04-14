@@ -2,6 +2,8 @@
 
 Welcome to News Blog App :-
 
+Build a MERN (MongoDB, Express, React, Node.js) stack film blog application from scratch with sections such as News, OTT Release and Film Release with many other extra features
+
 ![Screenshot 2024-03-26 145951](https://github.com/itsdlhqcp/TrendPulse/assets/95963252/9334a2c0-9841-45e0-a8fc-7a50eab5b5e8)
 ![Screenshot 2024-03-26 150140](https://github.com/itsdlhqcp/TrendPulse/assets/95963252/6f406263-31fc-4d74-b686-6ed5450f4588)
 ![Screenshot 2024-03-26 150224](https://github.com/itsdlhqcp/TrendPulse/assets/95963252/f7334cf6-4260-49af-a47b-918ecc16372f)
