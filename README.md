@@ -9,6 +9,8 @@ Build a MERN (MongoDB, Express, React, Node.js) stack film blog application from
 ![Screenshot 2024-03-26 150224](https://github.com/itsdlhqcp/TrendPulse/assets/95963252/f7334cf6-4260-49af-a47b-918ecc16372f)
 ![NAT](https://github.com/itsdlhqcp/TrendPulse/assets/95963252/e1b4984d-520f-4762-942c-764e8db001ab)
 ![Screenshot 2024-04-14 154302](https://github.com/itsdlhqcp/TrendPulse/assets/95963252/6411bb18-e239-494d-8862-a883ab0a348c)
+![WhatsApp Image 2024-03-29 at 21 15 19_10298002](https://github.com/itsdlhqcp/TrendPulse/assets/95963252/746596c8-1d93-4dfd-817c-14314accb075)
+
 
 
 [Development still in progress]
