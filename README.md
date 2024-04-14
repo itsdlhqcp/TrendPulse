@@ -88,4 +88,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-Thank you for using Ace E-commerce MERN App! If you have any questions or issues, feel free to open an [issue](https://github.com/itsdlhqcp/Ecommerce/issues). Happy coding!
+Thank you for using Ace E-commerce MERN App! If you have any questions or issues, feel free to open an [issue](https://github.com/itsdlhqcp/TrendPulse/issues). Happy coding!
