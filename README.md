@@ -10,6 +10,8 @@ Build a MERN (MongoDB, Express, React, Node.js) stack film blog application from
 ![NAT](https://github.com/itsdlhqcp/TrendPulse/assets/95963252/e1b4984d-520f-4762-942c-764e8db001ab)
 
 [Development still in progress]
+***Deployment phase ahaed-few more faetures to be tested & added***
+
 ## Installation
 
 1. **Clone the Repository:**
