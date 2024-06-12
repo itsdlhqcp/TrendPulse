@@ -47,7 +47,7 @@ const Navbar = () => {
     <div className="fixed top-0 left-0 right-0 z-10 bg-gray-200">
       <div className="flex items-center justify-between px-6 md:px-[200px] py-4">
         <h1 className="text-lg font-extrabold md:text-xl"><Link to="/">TrendPulse</Link></h1>
-                  <h3 className="text-lg font-extrabold md:text-xl" style={{ color: 'red' }}><Link to="/">please wait as by reloading to load data (as backend deployed in renderer</Link></h3>
+                  <h5 className="text-lg font-extrabold md:text-xl" style={{ color: 'red' }}><Link to="/">please wait as by reloading to load data (as backend deployed in renderer</Link></h5>
         <div className="flex items-center justify-center space-x-2">
       <div className="flex items-center">
        <p onClick={()=>navigate(prompt?"?search="+prompt:navigate("/"))} className="cursor-pointer"><BsSearch className="mr-2 text-sm" /></p> 
